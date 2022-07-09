@@ -4,9 +4,9 @@ const bcrypt = require('bcrypt');
 
 //creates user model
 class User extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
+  // TODO: uncomment|checkPassword(loginPw) {
+  //   return bcrypt.compareSync(loginPw, this.password);
+  // }
 };
 
 //define table columns and configuration

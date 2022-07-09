@@ -3,37 +3,37 @@ const path = require('path');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 //handlebars
-const exphbs = require('express-handlebars');
+// TODO: uncomment |const exphbs = require('express-handlebars');
 // todo: uncomment |const helpers = require('./utils/helpers');
-const hbs = exphbs.create();
+// TODO: uncomment |const hbs = exphbs.create();
 // todo: add "{ helpers }" to .create()
 //routes
-// todo: uncomment |const routes = require('./controllers');
+const routes = require('./routes');
 const sequelize = require('./config/connection');
 //server call and port
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const sess = {
-  secret: 'super secret secret',
-  cookie: {},
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
-  })
-};
+// TODO: uncomment |const sess = {
+//   secret: 'super secret secret',
+//   cookie: {},
+//   resave: false,
+//   saveUninitialized: true,
+//   store: new SequelizeStore({
+//     db: sequelize
+//   })
+// };
 
-app.use(session(sess));
+// TODO: uncomment|app.use(session(sess));
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+// TODO: uncomment |app.engine('handlebars', hbs.engine);
+// TODO: uncomment |app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// todo: uncomment |app.use(routes);
+app.use(routes);
 
 //connects to db and server
 sequelize.sync({ force: false }).then(() => {
