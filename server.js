@@ -3,10 +3,10 @@ const path = require('path');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 //handlebars
-// TODO: uncomment |const exphbs = require('express-handlebars');
-// todo: uncomment |const helpers = require('./utils/helpers');
-// TODO: uncomment |const hbs = exphbs.create();
-// todo: add "{ helpers }" to .create()
+const exphbs = require('express-handlebars');
+const helpers = require('./utils/helpers');
+const hbs = exphbs.create({ helpers });
+
 //routes
 const routes = require('./routes');
 const sequelize = require('./config/connection');
@@ -26,8 +26,8 @@ const PORT = process.env.PORT || 3001;
 
 // TODO: uncomment|app.use(session(sess));
 
-// TODO: uncomment |app.engine('handlebars', hbs.engine);
-// TODO: uncomment |app.set('view engine', 'handlebars');
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
