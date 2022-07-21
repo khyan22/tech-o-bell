@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech-O-Bell</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/40fb8c6260.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body class="container-fluid bg-dark d-flex justify-content-between min-vh-100">
+    <header class="row bg-info text-dark d-flex justify-content-between">
+      <h1>
+        Tech-O-Bell
+      </h1>
+
+      <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/">Home</a>
+        </li>
+
+        {{#if loggedIn}}
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/dashboard">dashboard</a>
+        </li>
+
+        <li class="nav-item">
+          <button id="logout" class="btn">Logout</button>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/login">Login</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/signup">Sign Up</a>
+        </li>
+        {{/if}}
+      </ul>
+    </header>
+
+    <main class="row text-center text-light">
+      {{{ body }}}
+    </main>
+
+    <footer class="row bg-info text-center text-dark mt-auto">
+      Thanks for visiting!
+    </footer>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+  </body>
+</html>
