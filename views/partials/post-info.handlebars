@@ -1,0 +1,14 @@
+<a href='/post/{{id}}' class="text-decoration-none">
+  <article class="post text-info">
+    <div class="title">
+      {{post_title}}
+    </div>
+
+    <div class="meta">
+      Created by {{user.username}} on
+      {{format_date created_at}}
+      |
+      {{format_plural "comment" comments.length}}
+    </div>
+  </article>
+</a>
