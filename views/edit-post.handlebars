@@ -1,0 +1,22 @@
+<article class="d-flex flex-column align-items-center">
+  <a href="/dashboard"> &larr; Back to dashboard</a>
+
+  <h2>Edit post</h2>
+
+  <form class="edit-post-form col-4">
+    <div class="input-group">
+      <input class="form-control" name="post-title" type="text" value="{{post.title}}" />
+      <button type="submit" class="btn btn-info btn-outline-secondary"><i class="fas fa-save"></i></button>
+      <button type="button" class="btn delete-post-btn btn-info btn-outline-secondary"><i class="fa-solid fa-trash"></i></button>
+    </div>
+  </form>
+
+  <div>
+    posted by you on {{format_date post.created_at}}
+    {{> comments post.comments}}
+    <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+  </div>
+</article>
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/comment.js"></script>
