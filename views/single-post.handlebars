@@ -1,0 +1,20 @@
+<h1 class="text-info mt-5">{{post.title}} By {{post.user.username}}</h1>
+<p>Created on {{format_date post.created_at}}</p>
+
+<div class="fs-3 mb-5 p-3 border-top border-bottom border-info">{{post.post_body}}</div>
+
+{{#if loggedIn}}
+<form class="comment-form">
+  <div class="input-group">
+    <textarea class="form-control" name="comment-body" placeholder="Leave a comment"></textarea>
+    <button class="btn btn-info btn-outline-secondary" type="submit"><i class="fa-solid text-light fa-plus"></i></button>
+  </div>
+</form>
+{{/if}}
+
+<h2 class="mt-4 border-bottom text-info">Comments</h2>
+{{> comments post.comments}}
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}
