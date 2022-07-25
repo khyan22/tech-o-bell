@@ -6,16 +6,14 @@ async function signupFormHandler(event) {
   const password = document.querySelector('#password-signup').value.trim();
 
   if (username && email && password) {
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/users/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, email, password})
     });
 
     if (response.ok) {
-      setTimeout(() => {
         document.location.replace('/dashboard');
-      }, 500);
     } else {
       alert(response.statusText)
     }
