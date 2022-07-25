@@ -62,7 +62,6 @@ router.get('/post/:id', (req, res) => {
       'id',
       'post_title',
       'post_body',
-      'title',
       'created_at'
     ],
     include: [
