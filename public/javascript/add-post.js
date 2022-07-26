@@ -16,6 +16,7 @@ async function newFormHandler(event) {
     document.location.reload();
   } else {
     alert(response.statusText);
+    console.log('fetch problem')
   }
 };
 

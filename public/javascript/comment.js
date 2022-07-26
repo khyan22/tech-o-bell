@@ -3,14 +3,14 @@ async function commentFormHandler(event) {
 
   const comment_body = document.querySelector('textarea[name="comment-body"]').value.trim();
 
-  const post_id = window.location.toString().spit('/')[
+  const post_id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ]
 
   if (comment_body) {
     const response = await fetch('/api/comments', {
       method: 'POST',
-      header:{
+      headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ comment_body, post_id })
@@ -19,7 +19,7 @@ async function commentFormHandler(event) {
     if (response.ok) {
       document.location.reload();
     } else {
-      alert(response.statusText)
+      alert(response.statusText);
     }
   };
 };

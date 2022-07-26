@@ -21,9 +21,7 @@ const sess = {
   resave: true,
   rolling: true,
   saveUninitialized: true,
-  cookie: {
-      expires: 1800000
-  },
+  cookie: {},
   store: new SequelizeStore({
       db: sequelize
   })
@@ -41,6 +39,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 //connects to db and server
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'))
 });
