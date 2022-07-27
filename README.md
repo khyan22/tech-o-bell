@@ -22,5 +22,6 @@ All of the from end javascript is help in /public/javascript. The js files in th
 ### Utils
 the utils folder contains the auth function used to make sure that users that aren't logged in cant make post, comment on them or delete them. It also contains the helper methods that formate the date and pluralize words. 
 ## Active Page
-
+https://serene-mountain-27613.herokuapp.com/
 ## Screenshot
+![screenshot](./screenshot/screenshot.png)
